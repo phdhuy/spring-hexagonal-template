@@ -155,12 +155,8 @@
 				<artifactId>liquibase-maven-plugin</artifactId>
 				<version>${liquibase-maven-plugin.version}</version>
 				<configuration>
+					<changeLogFile>src/main/resources/db/changelog/db.changelog-master.yaml</changeLogFile>
 					<propertyFile>src/main/resources/liquibase.properties</propertyFile>
-					<url>jdbc:postgresql://localhost:5432/load-testing</url>
-					<username>postgres</username>
-					<password>duchuy</password>
-					<driver>org.postgresql.Driver</driver>
-					<referenceUrl>hibernate:spring:com.example.yourproject.persistence?dialect=org.hibernate.dialect.PostgreSQLDialect</referenceUrl>
 				</configuration>
 
 				<dependencies>
@@ -170,14 +166,6 @@
 						<version>4.28.0</version>
 					</dependency>
 				</dependencies>
-				<executions>
-					<execution>
-						<goals>
-							<goal>update</goal>
-						</goals>
-						<phase>process-resources</phase>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
