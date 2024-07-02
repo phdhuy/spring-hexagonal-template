@@ -1,4 +1,4 @@
-package com.phdhuy.template.springhexagonaltemplate;
+package com.phdhuy.springhexagonaltemplate;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

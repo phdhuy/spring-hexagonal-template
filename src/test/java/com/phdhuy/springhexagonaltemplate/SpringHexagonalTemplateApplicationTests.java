@@ -1,4 +1,4 @@
-package com.phdhuy.template.springhexagonaltemplate;
+package com.phdhuy.springhexagonaltemplate;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
