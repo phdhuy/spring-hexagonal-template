@@ -1,5 +1,6 @@
-package com.phdhuy.springhexagonaltemplate.infrastructure.adapters.outbound.persistence.entity;
+package com.phdhuy.springhexagonaltemplate.infrastructure.databases.postgresql.entity;
 
+import com.phdhuy.springhexagonaltemplate.shared.enums.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.*;
@@ -26,4 +27,10 @@ public class UserEntity extends BaseEntity {
   private String password;
 
   @Column private Timestamp confirmedAt;
+
+  @Column private Boolean isConfirmed = false;
+
+  @Enumerated(EnumType.STRING)
+  @Column
+  private Role role;
 }

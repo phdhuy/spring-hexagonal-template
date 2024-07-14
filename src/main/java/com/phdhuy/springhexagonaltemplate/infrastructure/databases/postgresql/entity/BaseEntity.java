@@ -1,4 +1,4 @@
-package com.phdhuy.springhexagonaltemplate.infrastructure.adapters.outbound.persistence.entity;
+package com.phdhuy.springhexagonaltemplate.infrastructure.databases.postgresql.entity;
 
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;

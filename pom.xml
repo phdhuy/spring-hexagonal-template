@@ -156,7 +156,6 @@
 				<version>${liquibase-maven-plugin.version}</version>
 				<configuration>
 					<changeLogFile>src/main/resources/db/changelog/db.changelog-master.yaml</changeLogFile>
-					<propertyFile>src/main/resources/liquibase.properties</propertyFile>
 				</configuration>
 
 				<dependencies>

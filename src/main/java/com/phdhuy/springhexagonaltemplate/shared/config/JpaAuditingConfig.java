@@ -1,4 +1,4 @@
-package com.phdhuy.springhexagonaltemplate.infrastructure.adapters.outbound.persistence.config;
+package com.phdhuy.springhexagonaltemplate.shared.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
