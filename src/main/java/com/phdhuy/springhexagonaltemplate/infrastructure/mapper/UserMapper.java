@@ -10,6 +10,7 @@ import org.mapstruct.Mapping;
 @Mapper(config = MapStructConfig.class)
 public interface UserMapper {
 
+  @Mapping(source = "user.isConfirmed", target = "isConfirmed")
   UserEntity fromUserDomain(User user);
 
   User toUserDomain(UserEntity userEntity);

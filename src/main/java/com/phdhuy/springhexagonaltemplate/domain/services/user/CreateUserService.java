@@ -41,6 +41,7 @@ public class CreateUserService implements CreateUserUseCase {
     }
 
     user.setEmail(signUpRequest.getEmail());
+    user.setIsConfirmed(true);
     user.setRole(Role.ROLE_USER);
     user.setPassword(passwordEncodePort.passwordEncoder(signUpRequest.getPassword()));
 

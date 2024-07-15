@@ -35,6 +35,8 @@
 		<org.springdoc.version>2.3.0</org.springdoc.version>
 		<hibernate-63.version>3.7.6</hibernate-63.version>
 		<liquibase-maven-plugin.version>4.19.0</liquibase-maven-plugin.version>
+		<jjwt.version>0.9.1</jjwt.version>
+		<jsonwebtoken.version>0.11.5</jsonwebtoken.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -133,6 +135,16 @@
 			<groupId>redis.clients</groupId>
 			<artifactId>jedis</artifactId>
 			<version>${jedis.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>${jjwt.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>${jsonwebtoken.version}</version>
 		</dependency>
 	</dependencies>
 

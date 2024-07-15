@@ -19,6 +19,8 @@ public class User {
 
   private Role role;
 
+  private Boolean isConfirmed;
+
   private Timestamp createdAt;
 
   private Timestamp updatedAt;

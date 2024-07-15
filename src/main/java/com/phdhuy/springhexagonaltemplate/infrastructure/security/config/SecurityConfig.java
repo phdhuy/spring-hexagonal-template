@@ -1,5 +1,7 @@
-package com.phdhuy.springhexagonaltemplate.shared.config;
+package com.phdhuy.springhexagonaltemplate.infrastructure.security.config;
 
+import com.phdhuy.springhexagonaltemplate.infrastructure.security.exception.CustomAuthenticationEntryPoint;
+import com.phdhuy.springhexagonaltemplate.infrastructure.security.filter.TokenAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +12,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
 
@@ -19,6 +24,13 @@ import static org.springframework.security.web.util.matcher.AntPathRequestMatche
 @EnableMethodSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
+
+  private final TokenAuthenticationFilter tokenAuthenticationFilter;
+
+  @Bean
+  public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+  }
 
   @Bean
   AuthenticationManager authenticationManager(
@@ -30,8 +42,8 @@ public class SecurityConfig {
   protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
     http.csrf(AbstractHttpConfigurer::disable)
-        //                .exceptionHandling(exp -> exp.authenticationEntryPoint(new
-        // RestAuthenticationEntryPoint()))
+        .exceptionHandling(
+            exp -> exp.authenticationEntryPoint(new CustomAuthenticationEntryPoint()))
         .sessionManagement(
             session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .authorizeHttpRequests(
@@ -49,6 +61,7 @@ public class SecurityConfig {
                     .anyRequest()
                     .permitAll());
 
+    http.addFilterBefore(tokenAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
     return http.build();
   }
 }

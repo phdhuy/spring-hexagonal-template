@@ -28,7 +28,7 @@ public class UserEntity extends BaseEntity {
 
   @Column private Timestamp confirmedAt;
 
-  @Column private Boolean isConfirmed = false;
+  @Column private Boolean isConfirmed;
 
   @Enumerated(EnumType.STRING)
   @Column
